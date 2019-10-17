@@ -1,27 +1,46 @@
-<?php
-$enable = get_option('origami_about_card_enable', 'true');
-$about_image = get_option('origami_about_card_image');
-$tmp = get_option('origami_about_card_avatar');
-$about_avatar =
-  $tmp == 'default' ? get_avatar_url(get_the_author_meta('user_email')) : $tmp;
-$tmp = get_option('origami_about_card_content');
-$about_content =
-  $tmp == 'default'
-    ? '<h5>' .
-      get_the_author_meta('nickname') .
-      '</h5>' .
-      get_the_author_meta('user_description')
-    : $tmp;
-if ($enable == 'true'): ?>
-<div class="about-card">
-    <div class="about-card-image" style="background-image: url(<?php echo $about_image; ?>);"></div>
-    <div class="about-card-avatar">
-    <figure class="avatar avatar-xxl">
-        <img src="<?php echo $about_avatar; ?>">
-    </figure>
-    </div>
-    <div class="about-card-content"><?php echo $about_content; ?></div>
-</div>
-<?php endif;
-?>
-<?php dynamic_sidebar('default_sidebar'); ?>
+
+<aside class="widget clearfix">
+  <form id="searchform" action="<?php bloginfo('home'); ?>">
+    <div class="input-group">
+      <input type="search" class="form-control" placeholder="搜索…" value="<?php the_search_query(); ?>" name="s">
+      <span class="input-group-btn">
+      <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+      </span> </div>
+  </form>
+</aside>
+<aside class="widget clearfix">
+  <h4 class="widget-title">文章分类</h4>
+  <div class="widget-cat">
+    <ul>
+      <?php wp_list_categories('depth=1&title_li=0&orderby=name&show_count=1'); ?>
+    </ul>
+  </div>
+</aside>
+<aside class="widget clearfix">
+  <h4 class="widget-title">热门文章</h4>
+  <ul class="widget-hot">
+    <?php tangstyle_get_most_viewed(); ?>
+  </ul>
+</aside>
+<aside class="widget clearfix">
+  <h4 class="widget-title">随机推荐</h4>
+  <ul class="widget-hot">
+    <?php $rand_posts = get_posts('numberposts=10&orderby=rand');  foreach( $rand_posts as $post ) : ?>
+    <li><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
+	<?php endforeach; ?>
+  </ul>
+</aside>
+<aside class="widget clearfix">
+  <h4 class="widget-title">标签云</h4>
+  <div class="widget-tags">
+    <?php wp_tag_cloud();?>
+  </div>
+</aside>
+<?php if (is_home() || is_front_page()) { ?>
+<aside class="widget clearfix">
+  <h4 class="widget-title">友情链接</h4>
+  <ul class="widget-links">
+    <?php wp_list_bookmarks('title_li=&categorize=0'); is_home() ?>
+  </ul>
+</aside>
+<?php } ?>

@@ -1,110 +1,39 @@
 <?php
-$logged = is_user_logged_in();
-if ($logged) {
-    $current_user = wp_get_current_user();
-    $comment_author_email = $current_user->user_email;
-    $comment_author = $current_user->display_name;
-    $comment_author_url = $current_user->user_url;
-}
-
-$current_user_url = get_site_url() . '/author/' . $current_user->user_login;
-
-$comment_count = get_comments_number();
-
-if (comments_open()):
+if ( post_password_required() )
+	return;
 ?>
+<?php if ( have_comments() ) : ?>
 
-<section id="comments-response" class="comments-response">
-    <form onsubmit="return false" id="comments-form">
-        <div class="response-header">
-            <div class="response-title"><?php echo __(
-            '说点什么',
-            'origami'
-            ); ?></div>
-            <div class="response-user">
-                <?php if ($logged): ?>
-                    <?php echo __('您是', 'origami'); ?>
-                    <a href="<?php echo $current_user_url; ?>">
-                        <?php echo $current_user->user_nicename; ?>
-                    </a> | 
-                <?php endif; ?>
-                <?php echo wp_loginout(); ?>
-            </div>
-            <button id="close-response" class="btn"><?php echo __('放弃治疗', 'origami');?></button>
-        </div>
-        <div class="response-anno"><?php echo get_option("origami_comment_announcement", "") ?></div>
-        <div class="response-body">
-            <?php echo get_avatar(
-                $comment_author_email,
-                64,
-                get_option("avatar_default"),
-                "",
-                [
-                    "class" => "response-avatar"
-                ]
-            ); ?>
-            <textarea class="form-input" id="response-text" placeholder="<?php echo __('加入讨论', 'origami'); ?>"></textarea>
-            <img src="<?php echo get_template_directory_uri() . "/image/comment-1.png" ?>" class="response-img">
-            <div class="OwO"></div>
-        </div>
-        <?php if (get_option("origami_markdown_comment", "true") == "true"): ?>
-            <div class="response-md"><i class="fa fa-book"></i>支持Markdown语法</div>
-        <?php endif; ?>
-        <div class="response-footer">
-            <div class="response-input-item">
-                <div class="form-group has-icon-right">
-                    <input data-rule="required(请输入昵称)|/.{1,50}/昵称太长或太短|disinput|focus" name="author" <?php if ($logged) {echo 'style="display:none"';} ?> id="response-author" class="form-input" type="text" value="<?php echo $comment_author; ?>" placeholder="<?php echo __('昵称', 'origami'); ?> *">
-                </div>
-                <div class="form-group has-icon-right">
-                    <input name="url" <?php if ($logged) {echo 'style="display:none"';} ?> id="response-website" class="form-input" type="text" value="<?php echo $comment_author_url; ?>" placeholder="<?php echo __('网站', 'origami'); ?>">
-                </div>
-            </div>
-            <div class="response-input-item">
-                <div class="form-group has-icon-right">
-                    <input data-rule="required(请输入邮箱)|/^([A-Za-z0-9_\-\.\u4e00-\u9fa5])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,8})$/您输入的邮箱有误|disinput|focus" name="email" <?php if ($logged) {echo 'style="display:none"';} ?> id="response-email" class="form-input" type="text" value="<?php echo $comment_author_email; ?>" placeholder="<?php echo __('邮箱', 'origami'); ?> *">
-                </div>
-                <div class="form-group has-icon-right">
-                    <input id="response-submit" class="form-input" type="submit" value="<?php echo __('发表评论', 'origami'); ?>" data-postid="<?php echo $post->ID; ?>" data-commentid="0" data-lv="1">
-                    <i class="loading form-icon response-loading"></i>
-                </div>
-            </div>
-        </div>
-    </form>
-</section>
-<section class="comments-container">
-    <div class="comments-count"><?php if ($comment_count == 0) {
-      echo __('好耶,沙发还空着ヾ(≧▽≦*)o', 'origami');
-    } else {
-      echo __('在', 'origami') .
-        '"' .
-        get_the_title() .
-        '"' .
-        __('已有', 'origami') .
-        $comment_count .
-        __('条评论', 'origami');
-    } ?></div>
-    <div id="comments-loading">
-        <div class="loading loading-lg"></div>
-        <span>Loading...</span>
-    </div>
-    <div
-        id="comments-list"
-        data-postid="<?php echo $post->ID; ?>"
-        data-pagecount="<?php echo get_comment_pages_count(); ?>"
-    ></div>
-    <div class="comments-nav">
-        <label class="form-label">当前评论页：</label>
-        <select class="form-select" id="comments-select">
-        </select>
-        <div class="flex-1"></div>
-        <ul class="pagination">
-            <li class="page-item">
-                <a class="prev" id="comments-prev"><i class="icon icon-back"></i> 上一页</a>
-            </li>
-            <li class="page-item">
-                <a class="next" id="comments-next">下一页 <i class="icon icon-forward"></i></a>
-            </li>
-        </ul>
-    </div>
-</section>
+<div class="comment-head clearfix">
+  <div class="pull-left"><?php comments_number(__('没有评论','1条评论','%条评论'));?></div>
+  <div class="pull-right"><a href="#respond"><i class="fa fa-pencil"></i> 添加新评论</a></div>
+</div>
+<ul>
+  <?php wp_list_comments( array( 'callback' => 'tangstyle_comment', 'style' => 'ol' ) ); ?>
+</ul>
+<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
+<nav id="comment-nav-below">
+  <ul class="pager">
+    <li><?php previous_comments_link( __( '上一页', 'tangstyle' ) ); ?></li>
+    <li><?php next_comments_link( __( '下一页', 'tangstyle' ) ); ?></li>
+  </ul>
+</nav>
 <?php endif; ?>
+<?php elseif ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
+<p><?php _e( '评论已关闭!', 'tangstyle' ); ?></p>
+<?php endif; ?>
+<?php 
+		$fields =  array(
+   			 'author' => '<div class="comment-form-author form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-user"></i></div><input class="form-control" placeholder="昵称" id="author" name="author" type="text" value="" ' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /><span class="form-control-feedback required">*</span></div></div>',
+   			 'email'  => '<div class="comment-form-email form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-envelope-o"></i></div><input class="form-control" placeholder="邮箱" id="email" name="email" type="text" value="" ' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /><span class="form-control-feedback required">*</span></div></div>',
+   			 'url'  => '<div class="comment-form-url form-group has-feedback"><div class="input-group"><div class="input-group-addon"><i class="fa fa-link"></i></div><input class="form-control" placeholder="网站" id="url" name="url" type="text" value="" ' . esc_attr(  $commenter['comment_author_url'] ) . '" size="30"' . $aria_req . ' /></div></div>',
+		);
+		$args = array(
+			'title_reply_before' => '<h4 id="reply-title" class="comment-reply-title">',
+			'title_reply_after'  => '</h4>',
+			'fields' =>  $fields,
+			'class_submit' => 'btn btn-primary',
+			'comment_field' =>  '<div class="comment form-group has-feedback"><textarea class="form-control" id="comment" placeholder=" " name="comment" rows="5" aria-required="true" required  onkeydown="if(event.ctrlKey){if(event.keyCode==13){document.getElementById(\'submit\').click();return false}};"></textarea></div>',
+		);
+		comment_form($args);
+	?>
