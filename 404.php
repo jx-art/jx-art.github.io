@@ -1,10 +1,19 @@
-<?php get_header(); ?>
-
-<div id="main">
-  <div class="col-md-8 col-md-offset-2 clearfix">
-    <div class="errors_404"><img src="<?php bloginfo('template_directory'); ?>/images/404.png" alt="404"></div>
-    <div class="errors_link"><a class="btn btn-default btn-lg" href="/" role="button"><i class="fa fa-home" aria-hidden="true"></i> 回首页</a><a class="btn btn-default btn-lg" href="javascript:history.go(-1)" role="button"><i class="fa fa-reply" aria-hidden="true"></i> 返回上一页</a></div>
-  </div>
+<?php
+/**
+ * The template for displaying 404 pages (not found)
+ * 
+ * @author Vtrois <seaton@vtrois.com>
+ * @license GPL-3.0
+ */
+get_header(); ?>
+<div class="kratos-start">
+	<div class="kratos-overlay"></div>
+	<div class="kratos-cover kratos-topimg text-center" style="background-image: url('<?php echo kratos_option('error_image', get_template_directory_uri() . '/images/404.jpg'); ?>')">
+		<div class="desc desc3">
+			<h2><?php echo kratos_option('error_text1', '这里已经是废墟，什么东西都没有'); ?></h2>
+			<span><?php echo kratos_option('error_text2', 'That page can not be found'); ?></span>
+			<span><a href="<?php echo home_url(); ?>"><div class="btn btn-star">返回首页</div></a></span>
+		</div>
+	</div>
 </div>
-
 <?php get_footer(); ?>
