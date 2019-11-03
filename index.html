@@ -193,7 +193,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        
+                        <a href="/tags/javaSE%EF%BC%88%E6%A0%87%E5%87%86%E7%89%88%EF%BC%89-javaEE%EF%BC%88%E4%BC%81%E4%B8%9A%E7%89%88%EF%BC%89-javaME%EF%BC%88%E5%BE%AE%E5%9E%8B%E7%89%88%EF%BC%89/" style="font-size: 10px;">javaSE（标准版） javaEE（企业版） javaME（微型版）</a> <a href="/tags/%E6%96%B0%E5%BB%BA-%E6%A8%A1%E6%9D%BF-%E5%B0%8F%E4%B9%A6%E5%8C%A0/" style="font-size: 20px;">新建,模板,小书匠</a>
                     </div>
                 </section>
                 
@@ -271,6 +271,518 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-jvav画笔" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/11/03/jvav%E7%94%BB%E7%AC%94/" class="article-date">
+      <time datetime="2019-11-03T03:48:03.527Z" itemprop="datePublished">2019-11-03</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/11/03/jvav%E7%94%BB%E7%AC%94/">JAVA画板JFrame画布JPanel画笔Graphics画漫天不停的跑的星星</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>Java代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>-程前</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@version</span>-star1.2.1</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@note</span>-画一百个*，然后通过repaint()不停的重画，造成炫酷的效果</span></span><br><span class="line"><span class="comment">    * */</span></span><br><span class="line">   <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Star1</span> </span>&#123;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">           <span class="comment">//实例化画板</span></span><br><span class="line">           JFrame f=<span class="keyword">new</span> JFrame();</span><br><span class="line">           <span class="comment">//设置画板大小</span></span><br><span class="line">           f.setSize(<span class="number">1400</span>,<span class="number">900</span>);</span><br><span class="line">           <span class="comment">//实例化画布</span></span><br><span class="line">           Mypanl p=<span class="keyword">new</span> Mypanl();</span><br><span class="line">           p.setBackground(Color.BLACK);</span><br><span class="line">           <span class="comment">//将画布放到画板上</span></span><br><span class="line">           f.add(p);</span><br><span class="line">           <span class="comment">//展示画板</span></span><br><span class="line">           f.setVisible(<span class="keyword">true</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Mypanl</span> <span class="keyword">extends</span> <span class="title">JPanel</span></span>&#123;</span><br><span class="line">           <span class="comment">/*</span></span><br><span class="line"><span class="comment">            * 重写画布的绘画方法，里面有一个画笔参数*/</span></span><br><span class="line">           <span class="meta">@Override</span></span><br><span class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">paint</span><span class="params">(Graphics g)</span> </span>&#123;</span><br><span class="line">               <span class="keyword">super</span>.paint(g);</span><br><span class="line">               <span class="comment">//设置画笔颜色</span></span><br><span class="line">               g.setColor(Color.WHITE);</span><br><span class="line">               <span class="comment">//设置画笔大小</span></span><br><span class="line">               g.setFont(<span class="keyword">new</span> Font(<span class="keyword">null</span>, <span class="number">0</span>,<span class="number">50</span>));</span><br><span class="line">               <span class="comment">//循环花100个星星</span></span><br><span class="line">               <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">100</span>; i++) &#123;</span><br><span class="line">                   g.drawString(<span class="string">"*"</span>,(<span class="keyword">int</span>)(Math.random()*<span class="number">1400</span>),(<span class="keyword">int</span>)(Math.random()*<span class="number">1400</span>));</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="comment">//线程等待100毫秒后重画</span></span><br><span class="line">               <span class="keyword">try</span> &#123;</span><br><span class="line">                   Thread.sleep(<span class="number">100</span>);</span><br><span class="line">               &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                   e.printStackTrace();</span><br><span class="line">               &#125;</span><br><span class="line">               repaint();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%B0%E5%BB%BA-%E6%A8%A1%E6%9D%BF-%E5%B0%8F%E4%B9%A6%E5%8C%A0/" rel="tag">新建,模板,小书匠</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-mysql总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/11/03/mysql%E6%80%BB%E7%BB%93/" class="article-date">
+      <time datetime="2019-11-03T03:44:17.661Z" itemprop="datePublished">2019-11-03</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/11/03/mysql%E6%80%BB%E7%BB%93/">MySQL知识点总结</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>1.管理数据库语句：</strong><br>使用数据库：<br>use test;<br>添加数据库：<br>create database 数据库名;<br>create database test;<br>修改数据库：<br>alter database 数据库名;<br>alter database test;<br>删除数据库：<br>drop database 数据库名;<br>drop database test;<br>查看所有数据库：<br>show databases;</p>
+<p><strong>2.管理表语句</strong>：<br>添加数据表：<br>create table 表名(<br>　　列名 数据类型 数据约束,<br>　　列名 数据类型 数据约束<br>);<br>create table student(<br>　　name varchar(20) not null,<br>　　age int(4)<br>)<br>修改数据表：<br>alter table 表名;<br>1)在表中增加新字段<br>alter table student add colunm name varchar(20);<br>2)删除表中的字段<br>alter table student drop name;<br>3)修改表中字段的类型<br>alter table student modify name varchar(10);<br>删除数据表：<br>drop table 表名;<br>drop table student;<br>查看所有表：<br>show tables;</p>
+<p><strong>3.管理数据语句</strong>：<br>插入数据：<br>insert into 表名 (列1,列2…) values (值1,值2…);<br>insert into student (name,age) values (‘张三’,20);<br>更新数据：<br>update 表名 set 列=修改值 where 条件;<br>update student set name=’李四’ where name=’张三’;<br>删除数据：<br>delete from 表名 where 条件;<br>delete from student where name=’李四’;<br>查询数据：<br>selete * from 表名 where 条件;<br>selete * from student where name=’张三’;</p>
+<p><strong>4.各种查询语句</strong>：<br>查询时指定别名：</p>
+<p>1) selete id AS ‘编号’,name AS ‘姓名’ from student;<br>2) selete id ‘编号’,name ‘姓名’ from student;(AS可以省略)<br>查询时合并列：<br>需求:查询每个学生的总分<br>selete name AS ‘姓名’,(servlet+mysql) AS ‘总成绩’ from student;<br>注意:合并列的字段必须是数值类型的字段<br>查询时去除重复(distinct)：<br>需求:查询有哪些地区的学生<br>selete DISTINCT address from student;<br>另一种语法<br>selete DISTINCT(address) from student;<br>条件查询<br>逻辑条件: and or<br>需求:查询学生的id为1，且姓名为张三的学生<br>selete * from student where id=1 and name=’张三’;(交集)<br>需求:查询学生的id为2，或姓名为张三的学生<br>selete * from student where id=2 or name=’张三’;(并集)<br>比较条件: &gt; &lt; &gt;= &lt;= = &lt;&gt; (between and–在…之间 包前包后)<br>需求:查询servlet分数大于80分的学生<br>selete * from student where servlet&gt;80;<br>需求:查询mysql分数小于或等于85分的学生<br>selete * from student where mysql&lt;=85;<br>需求:查询servlet分数大于或等于80分，且小于或等于85分的学生<br>selete * from student where servlet&gt;=80 AND servlet&lt;=85;<br>代替上面语句的语法<br>selete * from student where servlet BETWEEN 80 AND 85;<br>需求:查询年龄不等于30的学生<br>selete * from student where age&lt;&gt;30;<br>判空条件: is null, is not null, =’’, &lt;&gt;’’<br>Null:表示没有数据<br>空字符:表示有数据<br>需求:查询没有性别数据的学生(数据‘男’或‘女’)<br>selete* from student where gender IS NULL OR gender=’’;<br>需求:查询有性别数据的学生<br>selete * from student where gender IS NOT NULL AND gender&lt;&gt;’’;<br>模糊条件: like<br>模糊替代符号:<br>%:替代任意个字符<br>:替代一个字符<br>需求:查询姓“李”的学生<br>SELECT * FROM student WHERE NAME LIKE ‘李%’;<br>需求:查询姓名中包含‘四’字的学生<br>SELECT * FROM student WHERE NAME LIKE ‘%四%’;<br>需求:查询姓‘李’，全名只有两个字的学生<br>SELECT * FROM student WHERE NAME LIKE ‘李‘;<br>聚合函数查询(用于统计结果)<br>Max()取最大值 min()取最小值 avg()取平均值 count()统计标的记录数量 sum()求和<br>需求:查询servlet的最高分<br>SELECT MAX(servlet) FROM student;<br>需求:查询mysql的最低分<br>SELECT MIN(mysql) FROM student;<br>需求:查询servlet的平均分<br>SELECT AVG(servlet) FROM student;<br>需求:查询当前有几个学生<br>SELECT COUNT() FROM student;<br>需求:查询servlet成绩的总和<br>SELETE SUM(servlet) from student;<br>分页查询(limit)<br>Limit起始行数，查询的行数<br>起始行数从0开始<br>需求:查询第1,2条数据<br>SELECT * FROM student LIMIT 0,2;<br>分页查询需知道:当前页码，每页显示条数<br>结论分页查询当前页数据:select * from student limit (当前页码-1)<em>每页显示条数，每页显示条数;<br>需求:学生共20条数据，每页显示5条，共4页<br>查询第3页(第11到15条)的学生数据:select * from student limit 10,5;<br>查询后排序(order by)<br>DESC:降序。数值从大到小，字母z-a<br>ASC:升序。数值从小到大，字母a-z<br>默认情况下，按照插入的顺序排序<br>需求:按照id的升序排序<br>select * from student order by id asc;<br>需求:按照servlet成绩降序排序<br>select * from student order by servlet desc;<br>多个排序条件的情况:先按照前面的条件排序，当出现重复记录，再按照后面的条件排序<br>需求:按照age升序，再按照servlet成绩升序排序<br>select * from student order by age asc,servlet asc;<br>分组查询(group by)<br>需求:查询每个地区有多少人<br>SELECT address,COUNT() FROM student GROUP BY address;<br>需求:统计男女的人数<br>注意:where条件必须放在group by 分组之前<br>SELECT gender,COUNT() FROM student WHERE gender IS NOT NULL AND gender&lt;&gt;’’ GROUP BY gender;<br>分组后筛选(having)<br>需求:查询哪些地区的人数是大于2个的地区<br>查询哪些地区多少人 2)筛选人数大于2的地区<br>注意:having使用在group by分组之后，对分组后的条件进行筛选<br>SELECT address,COUNT() FROM student GROUP BY address HAVING COUNT(</em>)&gt;2;</p>
+<p><strong>5.数据约束</strong>（给表添加数据约束，从而约束用户操作表数据的行为）<br>1）默认值约束(default)<br>create table test(<br>　　name varchar(20),<br>　　gender varchar(20) default ‘男’<br>)<br>需求:当不插入gender的时候，分配一个‘男’的默认值<br>注意:1)当没有插入gender字段的时候，分配一个默认值<br>2）非空约束（not null）<br>create table test(<br>　　name varchar(20) not null,<br>　　gender varchar(20)<br>)<br>需求；name字段一定要有值(不能不插入数据，不能是null)，这是给name添加非空约束<br>1)非空约束，不能不插入值<br>Insert into test(gender) values(‘男’);<br>2)非空约束，不能插入null<br>Insert into test(name,gender) values(null,’男’);<br>3)唯一约束(unique)<br>create table test(<br>　　Id int unique,<br>　　name varchar(20)<br>)<br>需求:id的值不能出现重复。这时就要给id添加一个唯一约束<br>1)不能插入重复的值<br>2)唯一约束，可以插入多个null。所以唯一约束不能约束null<br>Insert into test(id,name) values(1,’张三’);<br>4)主键约束(primary key)(唯一+非空)<br>注意；<br>1)通常情况下，我们会给每张表都设置一个主键字段，用来标记记录的唯一性<br>2)但是不建议把业务含义字段作为主键，因为随着业务的变化，业务字段可能出现重复<br>3)建议给每张表都独立添加一个叫id的字段，把这个id字段设置成主键，用来作为记录的唯一性<br>create table test(<br>　　Id int primary key,<br>　　name varchar(20)<br>)<br>1)唯一性<br>2)非空性<br>5)自增长约束(auto_increment)<br>create table test(<br>　　Id int primary key auto_increment,<br>　　name varchar(20)<br>)<br>自增长约束:初始值为0，每次递增1<br>使用truncate table 删除数据的时候，可以把自增长的初始值置为0<br>6)外键约束<br>员工表(副表:被别的表约束的表，外键设置在副表)<br>Create table employee(<br>　　Id int primary key auto_increment,<br>　　name varchar(20),<br>　　deptId int,<br>　　添加外键约束(foreign key)<br>　　Constraint employee_dept_fk foreign key(deptId) references dept(id)<br>　　　　　　 外键名 外键字段<br>)<br>部门表(主表:约束别人的表)<br>Create table dept(<br>　　Id int primary key auto_increment,<br>　　Name varchar(20)<br>)<br>外键约束在什么情况下会起作用？<br>插入数据:当往副表插入了主表中不存在的数据时，外键起作用<br>修改数据:当往副表中修改主表中不存在的数据时，外键起作用<br>删除数据:副表中有关联主表数据的情况下，当删除主表数据时，外键起作用<br>当有了外键之后，应该如何管理数据呢？<br>插入数据:先插入主表的数据，再插入副表数据<br>修改数据:先修改主表数据，再修改副表数据<br>删除数据:先删除副表数据，再删除主表数据</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%B0%E5%BB%BA-%E6%A8%A1%E6%9D%BF-%E5%B0%8F%E4%B9%A6%E5%8C%A0/" rel="tag">新建,模板,小书匠</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java递归" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/11/03/java%E9%80%92%E5%BD%92/" class="article-date">
+      <time datetime="2019-11-03T03:42:26.236Z" itemprop="datePublished">2019-11-03</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/11/03/java%E9%80%92%E5%BD%92/">java递归算法</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>递归原理</strong><br>递归通俗的来说就是自己调用自己 但是要有递归头和递归尾部<br>要在一定条件之后跳出自己掉自己 不能实现出死循环<br>比如说1到一百的相加<br><strong>代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DiguiText</span> </span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">if</span> (i == <span class="number">1</span>) &#123;<span class="comment">//如果i等于1的话直接返回出1</span></span><br><span class="line">				<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> i + sum(i - <span class="number">1</span>);<span class="comment">//如果不等的话返回i+sum(i-1)就是一直在自己调用自己</span></span><br><span class="line">		&#125;						</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		DiguiText diguiText=<span class="keyword">new</span> DiguiText();</span><br><span class="line">		System.out.println(diguiText.sum(<span class="number">100</span>));<span class="comment">//传入100</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/11/03/java%E6%80%BB%E7%BB%93/" class="article-date">
+      <time datetime="2019-11-03T03:39:10.899Z" itemprop="datePublished">2019-11-03</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/11/03/java%E6%80%BB%E7%BB%93/">Java总结</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>JDK（java开发工具包）JRE（java运行环境）IDE（集成开发环境）</strong></p>
+<p>Java SE（Java Platform，Standard Edition）。Java SE 以前称为 J2SE。它允许开发和部署在桌面、服务器、嵌入式环境和实时环境中使用的 Java 应用程序。Java SE 包含了支持 Java Web 服务开发的类，并为 Java Platform，Enterprise Edition（Java EE）提供基础。 J2SE就是做那种桌面安装程序样的，像QQ，WORD那种应用程序。<br>Java EE（Java Platform，Enterprise Edition）。这个版本以前称为 J2EE。企业版本帮助开发和部署可移植、健壮、可伸缩且安全的服务器端 Java 应用程序。Java EE 是在 Java SE 的基础上构建的，它提供 Web 服务、组件模型、管理和通信 API，可以用来实现企业级的面向服务体系结构（service-oriented architecture，SOA）和 Web 2.0 应用程序。 J2EE 就是做基于Internet的应用程序，像选课系统，企业网站，银行系统之类的。<br>Java ME（Java Platform，Micro Edition）。这个版本以前称为 J2ME。Java ME 为在移动设备和嵌入式设备（比如手机、PDA、电视机顶盒和打印机）上运行的应用程序提供一个健壮且灵活的环境。Java ME 包括灵活的用户界面、健壮的安全模型、许多内置的网络协议以及对可以动态下载的连网和离线应用程序的丰富支持。基于 Java ME 规范的应用程序只需编写一次，就可以用于许多设备，而且可以利用每个设备的本机功能。 J2ME就是做嵌入式系统开发的，像手机游戏之类的，像现在流行的Android操作系统。<br>JDK（Java Development Kit）。<br>JRE（Java Runtime Environment）<br>IDE（Ind Depvelopment Environment）<br><strong>一、面向对象</strong></p>
+<p>类、对象、变量<br>（1）所有的Java程序都已类class为组织单元；类由属性和方法两部分组成<br>（2）先创建对象，再使用对象<br>（3）成员变量：类中定义，自动定义初始值<br>局部变量：类方法中定义（两变量同名，局部变量有更高的优先级）</p>
+<p><strong>构造方法</strong><br>构造方法是定义在java类中的一个用来初始化对象的方法，与类同名且没有返回值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> 构造方法名（）&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>其中构造方法名与类同名；当没有指定的构造方法时，系统会自动添加无参构造方法</p>
+<p><strong>Static使用</strong><br>Static修饰的成员属于整个类，被类的所有对象共享。可通过使用类名直接访问静态成员，也可通过对象名<br>Static可以修饰变量、方法和代码块<br>（1）Static使用之静态方法</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Helloworld</span> </span>{
+<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>{
+System.out.println(“***”);
+}
+
+<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+    Helloworld.print();
+    Helloworld demo = <span class="keyword">new</span> Helloworld;
+    demo.print();
+}
+}</code></pre>
+<p>注意：静态方法中可以直接调用同类的静态成员，但不可以直接调用非静态成员；普通成员方法中可以直接访问同类的非静态变量和静态变量；静态方法中不能直接调用非静态成员方法</p>
+<p><strong>（2）Static使用之静态初始化块</strong><br>静态初始化块在类加载时执行，且只会执行一次，同时静态初始化块只能给静态变量赋值，不能初始化普通成员</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Helloworld</span> </span>{
+<span class="keyword">int</span> num1;
+<span class="keyword">int</span> num2;
+<span class="keyword">static</span> <span class="keyword">int</span> num3;
+
+<span class="function"><span class="keyword">public</span> <span class="title">Helloworld</span><span class="params">()</span> </span>{
+    num1 = <span class="number">91</span>;
+    System.out.println(<span class="string">"构造方法为num1赋值"</span>);
+    num2 = <span class="number">74</span>;
+    System.out.println(<span class="string">"初始化块为num2赋值"</span>);
+    num3 = <span class="number">83</span>;
+    System.out.println(<span class="string">"静态初始化块为num3赋值"</span>);
+}
+
+<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+    Helloworld hello = <span class="keyword">new</span> Helloworld();
+    System.out.println(hello.num1);
+    System.out.println(hello.num2);
+    System.out.println(num3);
+    Helloworld hello2 = <span class="keyword">new</span> Helloworld();
+}
+}</code></pre>
+<p>运行结果：静态初始化块为num3赋值<br>初始化块为num2赋值<br>构造方法为num1赋值<br>初始化块为num2赋值<br>构造方法为num1赋值</p>
+<p><strong>二、java面向对象的特性</strong></p>
+<p>封装性：将类的某些信息隐藏在内部，通过类的方法来实现操作访问<br>步骤：<br>1 修改属性可见性；<br>2 创建getter\setter方法；<br>3在方法中加入属性控制语句<br>(1)静态内部类:<br>public class SOuter {<br>private int a = 99;<br>static int b = 1;</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SInner</span> </span>{
+    <span class="keyword">int</span> b = <span class="number">2</span>;
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>{
+        System.out.println(<span class="string">"访问外部类b"</span> + SOuter.b);
+        System.out.println(<span class="string">"访问内部类b"</span> + b);
+    }
+}
+
+<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+
+    <span class="comment">//三行表示</span>
+    SInner sInner;
+    sInner = <span class="keyword">new</span> SInner();
+    sInner.test();
+
+    <span class="comment">//两行表示</span>
+    SInner si = <span class="keyword">new</span> SInner();
+    si.test();
+
+    <span class="comment">//一行表示</span>
+    <span class="keyword">new</span> SInner().test();
+
+}
+}</code></pre>
+<p>(2)成员内部类：访问外部类时使用this指针<br>（3）方法内部类：只能在该方法中使用，且不能使用访问控制符和Static修饰符<br><strong>2. 继承性</strong><br>（1）一般形式：class 子类 extends 父类<br>（2）方法重写：子类对继承的父类方法不满意可以重写，调用时优先调用子类方法<br>（3）继承的初始化顺序：先初始化父类，再到子类；先执行初始化对象中属性，再执行狗在方法中的初始化<br>（4）父类对象–属性初始化–构造方法–子类对象–属性初始化–构造方法<br>（5）注意：如果子类构造方法中没有显示调用父类的构造方法，默认调用父类无参构造方法，若此父类没用无参的构造方法，则编译出错</p>
+<p><strong>多态性</strong><br>引用多态：父类的引用可以指向本类的对象，也可指向子类的对象<br>方法多态：创建本类对象时，调用的方法为本类方法；创建子类对象时，调用的方法为子类的重写的方法或者继承的方法<br>（1）抽象类<br>用关键字abstract修饰：抽象类只用声明不需要实现；包含抽象方法的类为抽象类；抽象类不能直接创建，可以定义引用变量。</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Telphone</span></span>{
+<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">()</span></span>; <span class="comment">//抽象方法没有方法体，以分号结束</span>
+}</code></pre>
+<p>（2）接口（一种特殊的类，有全局变量和公共抽象方法组成）<br>[修饰符] class 类名 extends 父类implemrnts 接口1,2……<br>{类体部分<br>}<br>注：接口经常与匿名内部类配合使用</p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iplay</span></span>{
+<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">phone</span><span class="params">()</span></span>;
+}
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">People</span> <span class="keyword">implements</span> <span class="title">Iplay</span></span>{
+<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{
+People test=<span class="keyword">new</span> People();
+test.phone();
+}
+<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">phone</span><span class="params">()</span></span>{
+System.out.println(“手机可以玩游戏”);
+}
+}</code></pre>
+<p>1.String、StringBuilder、StringBuffer的区别是什么，String为什么是不可变的？<br>不可变性<br>String类的底层源码中，通过final关键字修饰字符串数组，private final char value[]，所以是不可变的。StringBuffer和StringBuilder类是集成自 AbstractStringBuilder 类， AbstractStringBuilder 类中的变量没有用final关键字修饰，所以是可变的。</p>
+<p>线程安全性<br>String是不可变的，是常量，所以是线程安全的。StringBuilder和StringBuffer都继承自AbstractStringBuilder 类，StringBuffer对方法加了同步锁，所以是线程安全的，而StringBuilder没有加同步锁，所以是线程不安全的。</p>
+<p>性能<br>对String类型进行改变是都会new一个新的string对象，并指向新的对象；</p>
+<p>StringBuffer直接通过改变自身变量的值，StringBuilder相对能提升性能，但有线程不安全的情况。</p>
+<p>2.== 与 equals<br>==用来判断两个对象是否相等，基础数据类型比较的是值是否相等。</p>
+<p>没有重写对象的equals方法时，也是用来比较两个对象是否相等，重写equals方法可以比较内容相等，返回true</p>
+<p>3.try/catch/finally中finally是否一定执行<br>在以下4种特殊情况下，finally块不会被执行:</p>
+<p>在finally语句块中发生了异常。</p>
+<p>在前面的代码中用了System.exit()退出程序。</p>
+<p>程序所在的线程死亡。</p>
+<p>关闭CPU。</p>
+<p><strong>4.接口和抽象类的区别？</strong><br>1.抽象类中可以实现方法，抽象接口不能实现方法（jdk1.8以后可以实现方法）；</p>
+<p>2.接口中的变量默认是final类型，而抽象类不是；</p>
+<p>3.类只能继承一个抽象类，而接口可以实现多个；</p>
+<p>4.类继承接口需要实现所有方法，抽象类不需要；</p>
+<p><strong>5.接口不能用new实例化</strong><br>，可以声明。必须引用一个实现该接口的对象抽象是对类的抽象，是一种模板设计，接口是行为的抽象，是一种行为的规范。</p>
+<p>5.Arraylist 与 LinkedList 异同<br>安全性<br>ArrayList与LinkedList都是线程不安全的。</p>
+<p><strong>数据结构实现</strong><br>ArryayList是基于Object数组，而LinkedList是基于双向循环链表（JDK1.6之前为循环链表，之后取消了循环）</p>
+<p>插入删除的影响<br>ArrayList采用数组存储，插入删除受元素位置的影响；</p>
+<p>LinkedList采用链表存储，插入删除不收元素位置影响；</p>
+<p>访问元素<br>LinkedList 不支持高效的随机元素访问，而 ArrayList 支持。快速随机访问就是通过元素的序号快速获取元素对象(对应于get(int index)方法)。</p>
+<p>实现了RandomAccess接口的list，优先选择普通for循环 ，其次foreach,未实现RandomAccess接口的list， 优先选择iterator遍历(foreach遍历底层也是通过iterator实现的)，大size的数据，千万不要使用普通for循环</p>
+<p><strong>6.ArrayList 与 Vector 区别</strong><br>Vector中所有方法都是同步的，在多线程操作中，同步操作会耗费时间，而ArrayList是不需要同步的，在不需要考虑线程安全时可以使用。</p>
+<p><strong>7.HashMap的底层实现</strong><br>待补充完善</p>
+<p><strong>8.HashSet 和 HashMap 区别</strong><br>HashMap实现Map接口，用来存储键值对，调用put方法添加元素，使用Key计算Hashcode，而HashSet实现Set接口，用来存储对象，调用add方法添加对象，使用对象计算hashcode，根据equals方法判断对象相等，执行效率的话，HashMap优与HashSet。</p>
+<p><strong>9.ConcurrentHashMap 和 Hashtable 的区别</strong><br>ConcurrentHashMap 和 HashTable 的区别主要体现在实现线程安全的方式上不同。ConcurrentHashMap使用的是分段锁，HashTable使用的是同一把锁，因而在多线程并发中效率很低。</p>
+<p><strong>10.多线程实现方式</strong><br>1.继承Thread类，2.实现Runnable接口，3.基于线程池实现</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javaSE%EF%BC%88%E6%A0%87%E5%87%86%E7%89%88%EF%BC%89-javaEE%EF%BC%88%E4%BC%81%E4%B8%9A%E7%89%88%EF%BC%89-javaME%EF%BC%88%E5%BE%AE%E5%9E%8B%E7%89%88%EF%BC%89/" rel="tag">javaSE（标准版） javaEE（企业版） javaME（微型版）</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-二分查找" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/11/03/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" class="article-date">
+      <time datetime="2019-11-03T03:39:10.895Z" itemprop="datePublished">2019-11-03</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/11/03/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">Java实现的二分查找算法</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>二分查找又称折半查找，它是一种效率较高的查找方法</strong></p>
+<p>折半查找的算法思想是将数列按有序化(递增或递减)排列，查找过程中采用跳跃式方式查找，即先以有序数列的中点位置为比较对象，如果要找的元素值小 于该中点元素，则将待查序列缩小为左半部分，否则为右半部分。通过一次比较，将查找区间缩小一半。 折半查找是一种高效的查找方法。它可以明显减少比较次数，提高查找效率。但是，折半查找的先决条件是查找表中的数据元素必须有序。<br>折半查找法的优点是比较次数少，查找速度快，平均性能好;其缺点是要求待查表为有序表，且插入删除困难。因此，折半查找方法适用于不经常变动而查找频繁的有序列表。<br><strong>二分算法步骤描述</strong><br>① 首先确定整个查找区间的中间位置 mid = （ left + right ）/ 2<br>② 用待查关键字值与中间位置的关键字值进行比较；<br>若相等，则查找成功<br>若大于，则在后（右）半个区域继续进行折半查找<br>若小于，则在前（左）半个区域继续进行折半查找<br>③ 对确定的缩小区域再按折半公式，重复上述步骤。<br>最后，得到结果：要么查找成功， 要么查找失败。折半查找的存储结构采用一维数组存放。 折半查找算法举例<br>对给定数列（有序）{ 3,5,11,17,21,23,28,30,32,50,64,78,81,95,101}，按折半查找算法，查找关键字值为81的数据元素。<br><strong>二分查找算法讨论：</strong><br>优点：ASL≤log2n，即每经过一次比较,查找范围就缩小一半。经log2n 次计较就可以完成查找过程。<br>缺点：因要求有序，所以要求查找数列必须有序，而对所有数据元素按大小排序是非常费时的操作。另外，顺序存储结构的插入、删除操作不便利。<br>考虑：能否通过一次比较抛弃更多的部分（即经过一次比较，使查找范围缩得更小），以达到提高效率的目的。……？<br>可以考虑把两种方法（顺序查找和折半查找）结合起来，即取顺序查找简单和折半查找高效之所长，来达到提高效率的目的？实际上这就是分块查找的算法思想。<br><strong>Java二分查找源码</strong></p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TrstBinaySearch</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        <span class="keyword">int</span> [] a={<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">80</span>,<span class="number">90</span>,<span class="number">100</span>};<span class="comment">//必须是有序的</span>
+        Arrays.sort(a);
+        System.out.println(<span class="string">"请输入您需要查找的值"</span>);
+        Scanner scanner=<span class="keyword">new</span> Scanner(System.in);
+        <span class="keyword">int</span> value=scanner.nextInt();<span class="comment">//需要查找的值</span>
+        System.out.println(myBinary(a, value));
+    }
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">myBinary</span><span class="params">(<span class="keyword">int</span> [] a,<span class="keyword">int</span> s)</span></span>{
+        <span class="keyword">int</span> low=<span class="number">0</span>;
+        <span class="keyword">int</span> high=a.length-<span class="number">1</span>;
+        <span class="keyword">while</span>(low&lt;=high){
+            <span class="keyword">int</span> mid=(low+high)/<span class="number">2</span>;<span class="comment">//从中间开始查找</span>
+            <span class="keyword">if</span> (s==a[mid]) {
+                <span class="keyword">return</span> s;<span class="comment">//查找到了返回下标</span>
+            }
+            <span class="keyword">if</span> (s&gt;a[mid]) {
+                low=mid+<span class="number">1</span>;
+            }
+            <span class="keyword">if</span> (s&lt;a[mid]) {
+                high=mid-<span class="number">1</span>;
+            }
+        }
+        <span class="keyword">return</span> -<span class="number">1</span>;<span class="comment">//查找不到返回-1</span>
+    }
+}</code></pre>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-jsp_Mysql" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2019/11/03/jsp_Mysql/" class="article-date">
+      <time datetime="2019-11-03T02:05:50.860Z" itemprop="datePublished">2019-11-03</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2019/11/03/jsp_Mysql/">jsp 链接数据库实现查询功能</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>jsp链接数据库实现查询代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page import=&quot;java.sql.DriverManager&quot;%&gt;</span><br><span class="line">&lt;%@page import=&quot;java.sql.SQLException&quot;%&gt;</span><br><span class="line">&lt;%@page import=&quot;java.sql.ResultSet&quot;%&gt;</span><br><span class="line">&lt;%@page import=&quot;java.sql.Statement&quot;%&gt;</span><br><span class="line">&lt;%@page import=&quot;java.sql.Connection&quot;%&gt;</span><br><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;</span><br><span class="line">    pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;%</span><br><span class="line">	try &#123;  </span><br><span class="line">        Class.forName(&quot;com.mysql.jdbc.Driver&quot;);  ////驱动程序名</span><br><span class="line">        String url = &quot;jdbc:mysql://localhost:3306/schooldb&quot;; //数据库名</span><br><span class="line">        String username = &quot;root&quot;;  //数据库用户名</span><br><span class="line">        String password = &quot;root&quot;;  //数据库用户密码</span><br><span class="line">        Connection conn = DriverManager.getConnection(url, username, password);//连接状态</span><br><span class="line"></span><br><span class="line">        if(conn != null)&#123;  //判断数据库是否链接成功</span><br><span class="line">            out.print(&quot;数据库连接成功！&quot;);  </span><br><span class="line">            out.print(&quot;&lt;br /&gt;&quot;); </span><br><span class="line">%&gt;</span><br><span class="line">		&lt;table border=&quot;2&quot;&gt;</span><br><span class="line">		&lt;tr&gt;</span><br><span class="line">		&lt;td width=&quot;100&quot; number=&quot;title&quot;&gt;学号&lt;/td&gt;</span><br><span class="line">		&lt;td width=&quot;100&quot; name=&quot;title&quot;&gt;姓名&lt;/td&gt;</span><br><span class="line">		&lt;td width=&quot;100&quot; age=&quot;title&quot;&gt;年龄&lt;/td&gt;</span><br><span class="line">		&lt;/tr&gt;</span><br><span class="line">&lt;%</span><br><span class="line">            Statement stmt = null;  </span><br><span class="line">            ResultSet rs = null;  </span><br><span class="line">            String sql = &quot;SELECT * FROM schoolfo;&quot;;  //查询语句</span><br><span class="line">            stmt = conn.createStatement();  </span><br><span class="line">            rs = stmt.executeQuery(sql);  </span><br><span class="line">            out.print(&quot;查询结果：&quot;);  </span><br><span class="line">			out.print(&quot;&lt;br/&gt;&quot;);</span><br><span class="line">			//=rs.getString(&quot;字段名称&quot;)</span><br><span class="line">            while (rs.next()) &#123;%&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">			&lt;td width=&quot;100&quot; &gt;&lt;%=rs.getString(&quot;stu_id&quot;) %&gt;&lt;/td&gt;  </span><br><span class="line">			&lt;td width=&quot;100&quot; &gt;&lt;%=rs.getString(&quot;stu_name&quot;) %&gt;&lt;/td&gt;  </span><br><span class="line">			&lt;td width=&quot;100&quot;&gt;&lt;%=rs.getString(&quot;stu_date&quot;) %&gt;&lt;/td&gt;  </span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">		&lt;%//循环打印出数据库返回出来的结果</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            out.print(&quot;连接失败！&quot;);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;catch (Exception e) &#123;        </span><br><span class="line">        //e.printStackTrace();  </span><br><span class="line">        out.print(&quot;数据库连接异常！&quot;);  </span><br><span class="line">    &#125; </span><br><span class="line">	%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-ajax" class="article article-type-post" itemscope itemprop="blogPost">
   

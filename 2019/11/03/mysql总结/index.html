@@ -7,16 +7,17 @@
   
   
   
-  <title>jsp ajax 调用 | Hexo</title>
+  <title>MySQL知识点总结 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="同步；客户端发送请求后，在服务端对请求处理期间，客户端不能进行任何操作 异步：客户端发送请求后，在接收到服务端响应的同时，客户端能进行其他操作 首先创建一个jsp文件 123456789101112&amp;lt;%@ page language=&amp;quot;java&amp;quot; contentType=&amp;quot;text&#x2F;html; charset=UTF-8&amp;quot;    pageEncodin">
+  <meta name="description" content="1.管理数据库语句：使用数据库：use test;添加数据库：create database 数据库名;create database test;修改数据库：alter database 数据库名;alter database test;删除数据库：drop database 数据库名;drop database test;查看所有数据库：show databases; 2.管理表语句：添加数据表">
+<meta name="keywords" content="新建,模板,小书匠">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jsp ajax 调用">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;03&#x2F;ajax&#x2F;index.html">
+<meta property="og:title" content="MySQL知识点总结">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;03&#x2F;mysql%E6%80%BB%E7%BB%93&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="同步；客户端发送请求后，在服务端对请求处理期间，客户端不能进行任何操作 异步：客户端发送请求后，在接收到服务端响应的同时，客户端能进行其他操作 首先创建一个jsp文件 123456789101112&amp;lt;%@ page language=&amp;quot;java&amp;quot; contentType=&amp;quot;text&#x2F;html; charset=UTF-8&amp;quot;    pageEncodin">
+<meta property="og:description" content="1.管理数据库语句：使用数据库：use test;添加数据库：create database 数据库名;create database test;修改数据库：alter database 数据库名;alter database test;删除数据库：drop database 数据库名;drop database test;查看所有数据库：show databases; 2.管理表语句：添加数据表">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-03T01:41:41.139Z">
+<meta property="og:updated_time" content="2019-11-03T03:44:17.661Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -270,11 +271,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-ajax" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-mysql总结" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/11/03/ajax/" class="article-date">
-      <time datetime="2019-11-03T01:42:52.032Z" itemprop="datePublished">2019-11-03</time>
+      <a  href="/2019/11/03/mysql%E6%80%BB%E7%BB%93/" class="article-date">
+      <time datetime="2019-11-03T03:44:17.661Z" itemprop="datePublished">2019-11-03</time>
 </a>
 
     </div>
@@ -288,7 +289,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      jsp ajax 调用
+      MySQL知识点总结
     </h1>
   
 
@@ -299,6 +300,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%B0%E5%BB%BA-%E6%A8%A1%E6%9D%BF-%E5%B0%8F%E4%B9%A6%E5%8C%A0/" rel="tag">新建,模板,小书匠</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -306,22 +311,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>同步；客户端发送请求后，在服务端对请求处理期间，客户端不能进行任何操作</p>
-<p>异步：客户端发送请求后，在接收到服务端响应的同时，客户端能进行其他操作</p>
-<p><strong>首先创建一个jsp文件</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;</span><br><span class="line">    pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;text&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>书写一个form标签，其中书写两个input标签</strong></p>
-<figure class="highlight plain"><figcaption><span>page language</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;text&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;font&gt;</span><br><span class="line">	&lt;input type=&quot;text&quot;  name=&quot;number&quot; id=&quot;number&quot;  /&gt;</span><br><span class="line">	&lt;input type=&quot;password&quot;  name=&quot;password&quot; id=&quot;password&quot;  /&gt;</span><br><span class="line">	&lt;input/&gt;</span><br><span class="line">	&lt;/font&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>接着让我们引入jquery文件，利用script来书写js代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">	</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>下面我们开始获取输入框里面的value值</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">	var number = $(&quot;#number&quot;).val();</span><br><span class="line">	var password = $(&quot;#password&quot;).val();</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+        <p><strong>1.管理数据库语句：</strong><br>使用数据库：<br>use test;<br>添加数据库：<br>create database 数据库名;<br>create database test;<br>修改数据库：<br>alter database 数据库名;<br>alter database test;<br>删除数据库：<br>drop database 数据库名;<br>drop database test;<br>查看所有数据库：<br>show databases;</p>
+<p><strong>2.管理表语句</strong>：<br>添加数据表：<br>create table 表名(<br>　　列名 数据类型 数据约束,<br>　　列名 数据类型 数据约束<br>);<br>create table student(<br>　　name varchar(20) not null,<br>　　age int(4)<br>)<br>修改数据表：<br>alter table 表名;<br>1)在表中增加新字段<br>alter table student add colunm name varchar(20);<br>2)删除表中的字段<br>alter table student drop name;<br>3)修改表中字段的类型<br>alter table student modify name varchar(10);<br>删除数据表：<br>drop table 表名;<br>drop table student;<br>查看所有表：<br>show tables;</p>
+<p><strong>3.管理数据语句</strong>：<br>插入数据：<br>insert into 表名 (列1,列2…) values (值1,值2…);<br>insert into student (name,age) values (‘张三’,20);<br>更新数据：<br>update 表名 set 列=修改值 where 条件;<br>update student set name=’李四’ where name=’张三’;<br>删除数据：<br>delete from 表名 where 条件;<br>delete from student where name=’李四’;<br>查询数据：<br>selete * from 表名 where 条件;<br>selete * from student where name=’张三’;</p>
+<p><strong>4.各种查询语句</strong>：<br>查询时指定别名：</p>
+<p>1) selete id AS ‘编号’,name AS ‘姓名’ from student;<br>2) selete id ‘编号’,name ‘姓名’ from student;(AS可以省略)<br>查询时合并列：<br>需求:查询每个学生的总分<br>selete name AS ‘姓名’,(servlet+mysql) AS ‘总成绩’ from student;<br>注意:合并列的字段必须是数值类型的字段<br>查询时去除重复(distinct)：<br>需求:查询有哪些地区的学生<br>selete DISTINCT address from student;<br>另一种语法<br>selete DISTINCT(address) from student;<br>条件查询<br>逻辑条件: and or<br>需求:查询学生的id为1，且姓名为张三的学生<br>selete * from student where id=1 and name=’张三’;(交集)<br>需求:查询学生的id为2，或姓名为张三的学生<br>selete * from student where id=2 or name=’张三’;(并集)<br>比较条件: &gt; &lt; &gt;= &lt;= = &lt;&gt; (between and–在…之间 包前包后)<br>需求:查询servlet分数大于80分的学生<br>selete * from student where servlet&gt;80;<br>需求:查询mysql分数小于或等于85分的学生<br>selete * from student where mysql&lt;=85;<br>需求:查询servlet分数大于或等于80分，且小于或等于85分的学生<br>selete * from student where servlet&gt;=80 AND servlet&lt;=85;<br>代替上面语句的语法<br>selete * from student where servlet BETWEEN 80 AND 85;<br>需求:查询年龄不等于30的学生<br>selete * from student where age&lt;&gt;30;<br>判空条件: is null, is not null, =’’, &lt;&gt;’’<br>Null:表示没有数据<br>空字符:表示有数据<br>需求:查询没有性别数据的学生(数据‘男’或‘女’)<br>selete* from student where gender IS NULL OR gender=’’;<br>需求:查询有性别数据的学生<br>selete * from student where gender IS NOT NULL AND gender&lt;&gt;’’;<br>模糊条件: like<br>模糊替代符号:<br>%:替代任意个字符<br>:替代一个字符<br>需求:查询姓“李”的学生<br>SELECT * FROM student WHERE NAME LIKE ‘李%’;<br>需求:查询姓名中包含‘四’字的学生<br>SELECT * FROM student WHERE NAME LIKE ‘%四%’;<br>需求:查询姓‘李’，全名只有两个字的学生<br>SELECT * FROM student WHERE NAME LIKE ‘李‘;<br>聚合函数查询(用于统计结果)<br>Max()取最大值 min()取最小值 avg()取平均值 count()统计标的记录数量 sum()求和<br>需求:查询servlet的最高分<br>SELECT MAX(servlet) FROM student;<br>需求:查询mysql的最低分<br>SELECT MIN(mysql) FROM student;<br>需求:查询servlet的平均分<br>SELECT AVG(servlet) FROM student;<br>需求:查询当前有几个学生<br>SELECT COUNT() FROM student;<br>需求:查询servlet成绩的总和<br>SELETE SUM(servlet) from student;<br>分页查询(limit)<br>Limit起始行数，查询的行数<br>起始行数从0开始<br>需求:查询第1,2条数据<br>SELECT * FROM student LIMIT 0,2;<br>分页查询需知道:当前页码，每页显示条数<br>结论分页查询当前页数据:select * from student limit (当前页码-1)<em>每页显示条数，每页显示条数;<br>需求:学生共20条数据，每页显示5条，共4页<br>查询第3页(第11到15条)的学生数据:select * from student limit 10,5;<br>查询后排序(order by)<br>DESC:降序。数值从大到小，字母z-a<br>ASC:升序。数值从小到大，字母a-z<br>默认情况下，按照插入的顺序排序<br>需求:按照id的升序排序<br>select * from student order by id asc;<br>需求:按照servlet成绩降序排序<br>select * from student order by servlet desc;<br>多个排序条件的情况:先按照前面的条件排序，当出现重复记录，再按照后面的条件排序<br>需求:按照age升序，再按照servlet成绩升序排序<br>select * from student order by age asc,servlet asc;<br>分组查询(group by)<br>需求:查询每个地区有多少人<br>SELECT address,COUNT() FROM student GROUP BY address;<br>需求:统计男女的人数<br>注意:where条件必须放在group by 分组之前<br>SELECT gender,COUNT() FROM student WHERE gender IS NOT NULL AND gender&lt;&gt;’’ GROUP BY gender;<br>分组后筛选(having)<br>需求:查询哪些地区的人数是大于2个的地区<br>查询哪些地区多少人 2)筛选人数大于2的地区<br>注意:having使用在group by分组之后，对分组后的条件进行筛选<br>SELECT address,COUNT() FROM student GROUP BY address HAVING COUNT(</em>)&gt;2;</p>
+<p><strong>5.数据约束</strong>（给表添加数据约束，从而约束用户操作表数据的行为）<br>1）默认值约束(default)<br>create table test(<br>　　name varchar(20),<br>　　gender varchar(20) default ‘男’<br>)<br>需求:当不插入gender的时候，分配一个‘男’的默认值<br>注意:1)当没有插入gender字段的时候，分配一个默认值<br>2）非空约束（not null）<br>create table test(<br>　　name varchar(20) not null,<br>　　gender varchar(20)<br>)<br>需求；name字段一定要有值(不能不插入数据，不能是null)，这是给name添加非空约束<br>1)非空约束，不能不插入值<br>Insert into test(gender) values(‘男’);<br>2)非空约束，不能插入null<br>Insert into test(name,gender) values(null,’男’);<br>3)唯一约束(unique)<br>create table test(<br>　　Id int unique,<br>　　name varchar(20)<br>)<br>需求:id的值不能出现重复。这时就要给id添加一个唯一约束<br>1)不能插入重复的值<br>2)唯一约束，可以插入多个null。所以唯一约束不能约束null<br>Insert into test(id,name) values(1,’张三’);<br>4)主键约束(primary key)(唯一+非空)<br>注意；<br>1)通常情况下，我们会给每张表都设置一个主键字段，用来标记记录的唯一性<br>2)但是不建议把业务含义字段作为主键，因为随着业务的变化，业务字段可能出现重复<br>3)建议给每张表都独立添加一个叫id的字段，把这个id字段设置成主键，用来作为记录的唯一性<br>create table test(<br>　　Id int primary key,<br>　　name varchar(20)<br>)<br>1)唯一性<br>2)非空性<br>5)自增长约束(auto_increment)<br>create table test(<br>　　Id int primary key auto_increment,<br>　　name varchar(20)<br>)<br>自增长约束:初始值为0，每次递增1<br>使用truncate table 删除数据的时候，可以把自增长的初始值置为0<br>6)外键约束<br>员工表(副表:被别的表约束的表，外键设置在副表)<br>Create table employee(<br>　　Id int primary key auto_increment,<br>　　name varchar(20),<br>　　deptId int,<br>　　添加外键约束(foreign key)<br>　　Constraint employee_dept_fk foreign key(deptId) references dept(id)<br>　　　　　　 外键名 外键字段<br>)<br>部门表(主表:约束别人的表)<br>Create table dept(<br>　　Id int primary key auto_increment,<br>　　Name varchar(20)<br>)<br>外键约束在什么情况下会起作用？<br>插入数据:当往副表插入了主表中不存在的数据时，外键起作用<br>修改数据:当往副表中修改主表中不存在的数据时，外键起作用<br>删除数据:副表中有关联主表数据的情况下，当删除主表数据时，外键起作用<br>当有了外键之后，应该如何管理数据呢？<br>插入数据:先插入主表的数据，再插入副表数据<br>修改数据:先修改主表数据，再修改副表数据<br>删除数据:先删除副表数据，再删除主表数据</p>
 
-
-<p><strong>声明两个变量data和urldata，<br>代表着form中各标签的值url代表着将要访问的网址</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">	var number = $(&quot;#number&quot;).val();</span><br><span class="line">	var password = $(&quot;#password&quot;).val();</span><br><span class="line">	var data;//里面存放需要传输的值</span><br><span class="line">	var url;//访问的服务器网址</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>利用jquery的ajax代码进行对url的访问，以及data的传输</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">	var number = $(&quot;#number&quot;).val();</span><br><span class="line">	var password = $(&quot;#password&quot;).val();</span><br><span class="line">	var data;</span><br><span class="line">	var url;//访问的服务器网址</span><br><span class="line">	jQuery.ajax(&#123;</span><br><span class="line">			type:&quot;post&quot;,</span><br><span class="line">			url:,//后台文件的url 就是form的action,用ajax提交表单就不需要给form写action了</span><br><span class="line">			date:&#123;&quot;userName&quot;:name,&quot;userId&quot;:number,&quot;newPwd&quot;:password&#125;,</span><br><span class="line">			dataType: &quot;json&quot;,</span><br><span class="line">       		contentType: &quot;application/json; charset=utf-8&quot;,</span><br><span class="line">			data: $(&apos;#myform&apos;).serialize(),//表单数据序列化</span><br><span class="line">	&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -329,13 +325,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2019/11/03/ajax/">jsp ajax 调用</a></p>
+        <p><span>本文标题:</span><a  href="/2019/11/03/mysql%E6%80%BB%E7%BB%93/">MySQL知识点总结</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 王稼祥 的个人博客">王稼祥</a></p>
-        <p><span>发布时间:</span>2019年11月03日 - 09时42分</p>
-        <p><span>最后更新:</span>2019年11月03日 - 09时41分</p>
+        <p><span>发布时间:</span>2019年11月03日 - 11时44分</p>
+        <p><span>最后更新:</span>2019年11月03日 - 11时44分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/11/03/ajax/" title="jsp ajax 调用">http://yoursite.com/2019/11/03/ajax/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/11/03/ajax/　　作者: 王稼祥" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/11/03/mysql%E6%80%BB%E7%BB%93/" title="MySQL知识点总结">http://yoursite.com/2019/11/03/mysql%E6%80%BB%E7%BB%93/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/11/03/mysql%E6%80%BB%E7%BB%93/　　作者: 王稼祥" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -346,15 +342,20 @@
 
 <nav id="article-nav">
   
-    <a  href="/2019/11/03/jsp_Mysql/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a  href="/2019/11/03/jvav%E7%94%BB%E7%AC%94/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          jsp 链接数据库实现查询功能
+          JAVA画板JFrame画布JPanel画笔Graphics画漫天不停的跑的星星
         
       </div>
     </a>
   
+  
+    <a  href="/2019/11/03/java%E9%80%92%E5%BD%92/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java递归算法</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -437,13 +438,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2019/11/03/jsp_Mysql/" title="上一篇: jsp 链接数据库实现查询功能">
+            <a  href="/2019/11/03/jvav%E7%94%BB%E7%AC%94/" title="上一篇: JAVA画板JFrame画布JPanel画笔Graphics画漫天不停的跑的星星">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a  href="/2019/11/03/java%E9%80%92%E5%BD%92/" title="下一篇: java递归算法">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/11/03/jvav%E7%94%BB%E7%AC%94/">JAVA画板JFrame画布JPanel画笔Graphics画漫天不停的跑的星星</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/03/mysql%E6%80%BB%E7%BB%93/">MySQL知识点总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/03/java%E9%80%92%E5%BD%92/">java递归算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/03/java%E6%80%BB%E7%BB%93/">Java总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/03/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">Java实现的二分查找算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/03/jsp_Mysql/">jsp 链接数据库实现查询功能</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/03/ajax/">jsp ajax 调用</a></li></ul>

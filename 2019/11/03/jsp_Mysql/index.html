@@ -7,16 +7,16 @@
   
   
   
-  <title>jsp ajax 调用 | Hexo</title>
+  <title>jsp 链接数据库实现查询功能 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="同步；客户端发送请求后，在服务端对请求处理期间，客户端不能进行任何操作 异步：客户端发送请求后，在接收到服务端响应的同时，客户端能进行其他操作 首先创建一个jsp文件 123456789101112&amp;lt;%@ page language=&amp;quot;java&amp;quot; contentType=&amp;quot;text&#x2F;html; charset=UTF-8&amp;quot;    pageEncodin">
+  <meta name="description" content="jsp链接数据库实现查询代码 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859&amp;lt;%@page import=&amp;quot;java.sql.DriverManager&amp;quot;%&amp;gt;&amp;lt;%@page import=&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jsp ajax 调用">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;03&#x2F;ajax&#x2F;index.html">
+<meta property="og:title" content="jsp 链接数据库实现查询功能">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;03&#x2F;jsp_Mysql&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="同步；客户端发送请求后，在服务端对请求处理期间，客户端不能进行任何操作 异步：客户端发送请求后，在接收到服务端响应的同时，客户端能进行其他操作 首先创建一个jsp文件 123456789101112&amp;lt;%@ page language=&amp;quot;java&amp;quot; contentType=&amp;quot;text&#x2F;html; charset=UTF-8&amp;quot;    pageEncodin">
+<meta property="og:description" content="jsp链接数据库实现查询代码 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859&amp;lt;%@page import=&amp;quot;java.sql.DriverManager&amp;quot;%&amp;gt;&amp;lt;%@page import=&amp;">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-03T01:41:41.139Z">
+<meta property="og:updated_time" content="2019-11-03T02:04:59.886Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -270,11 +270,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-ajax" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-jsp_Mysql" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2019/11/03/ajax/" class="article-date">
-      <time datetime="2019-11-03T01:42:52.032Z" itemprop="datePublished">2019-11-03</time>
+      <a  href="/2019/11/03/jsp_Mysql/" class="article-date">
+      <time datetime="2019-11-03T02:05:50.860Z" itemprop="datePublished">2019-11-03</time>
 </a>
 
     </div>
@@ -288,7 +288,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      jsp ajax 调用
+      jsp 链接数据库实现查询功能
     </h1>
   
 
@@ -306,22 +306,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>同步；客户端发送请求后，在服务端对请求处理期间，客户端不能进行任何操作</p>
-<p>异步：客户端发送请求后，在接收到服务端响应的同时，客户端能进行其他操作</p>
-<p><strong>首先创建一个jsp文件</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;</span><br><span class="line">    pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;text&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>书写一个form标签，其中书写两个input标签</strong></p>
-<figure class="highlight plain"><figcaption><span>page language</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;text&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;font&gt;</span><br><span class="line">	&lt;input type=&quot;text&quot;  name=&quot;number&quot; id=&quot;number&quot;  /&gt;</span><br><span class="line">	&lt;input type=&quot;password&quot;  name=&quot;password&quot; id=&quot;password&quot;  /&gt;</span><br><span class="line">	&lt;input/&gt;</span><br><span class="line">	&lt;/font&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>接着让我们引入jquery文件，利用script来书写js代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">	</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>下面我们开始获取输入框里面的value值</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">	var number = $(&quot;#number&quot;).val();</span><br><span class="line">	var password = $(&quot;#password&quot;).val();</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+        <p><strong>jsp链接数据库实现查询代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page import=&quot;java.sql.DriverManager&quot;%&gt;</span><br><span class="line">&lt;%@page import=&quot;java.sql.SQLException&quot;%&gt;</span><br><span class="line">&lt;%@page import=&quot;java.sql.ResultSet&quot;%&gt;</span><br><span class="line">&lt;%@page import=&quot;java.sql.Statement&quot;%&gt;</span><br><span class="line">&lt;%@page import=&quot;java.sql.Connection&quot;%&gt;</span><br><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;</span><br><span class="line">    pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;%</span><br><span class="line">	try &#123;  </span><br><span class="line">        Class.forName(&quot;com.mysql.jdbc.Driver&quot;);  ////驱动程序名</span><br><span class="line">        String url = &quot;jdbc:mysql://localhost:3306/schooldb&quot;; //数据库名</span><br><span class="line">        String username = &quot;root&quot;;  //数据库用户名</span><br><span class="line">        String password = &quot;root&quot;;  //数据库用户密码</span><br><span class="line">        Connection conn = DriverManager.getConnection(url, username, password);//连接状态</span><br><span class="line"></span><br><span class="line">        if(conn != null)&#123;  //判断数据库是否链接成功</span><br><span class="line">            out.print(&quot;数据库连接成功！&quot;);  </span><br><span class="line">            out.print(&quot;&lt;br /&gt;&quot;); </span><br><span class="line">%&gt;</span><br><span class="line">		&lt;table border=&quot;2&quot;&gt;</span><br><span class="line">		&lt;tr&gt;</span><br><span class="line">		&lt;td width=&quot;100&quot; number=&quot;title&quot;&gt;学号&lt;/td&gt;</span><br><span class="line">		&lt;td width=&quot;100&quot; name=&quot;title&quot;&gt;姓名&lt;/td&gt;</span><br><span class="line">		&lt;td width=&quot;100&quot; age=&quot;title&quot;&gt;年龄&lt;/td&gt;</span><br><span class="line">		&lt;/tr&gt;</span><br><span class="line">&lt;%</span><br><span class="line">            Statement stmt = null;  </span><br><span class="line">            ResultSet rs = null;  </span><br><span class="line">            String sql = &quot;SELECT * FROM schoolfo;&quot;;  //查询语句</span><br><span class="line">            stmt = conn.createStatement();  </span><br><span class="line">            rs = stmt.executeQuery(sql);  </span><br><span class="line">            out.print(&quot;查询结果：&quot;);  </span><br><span class="line">			out.print(&quot;&lt;br/&gt;&quot;);</span><br><span class="line">			//=rs.getString(&quot;字段名称&quot;)</span><br><span class="line">            while (rs.next()) &#123;%&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">			&lt;td width=&quot;100&quot; &gt;&lt;%=rs.getString(&quot;stu_id&quot;) %&gt;&lt;/td&gt;  </span><br><span class="line">			&lt;td width=&quot;100&quot; &gt;&lt;%=rs.getString(&quot;stu_name&quot;) %&gt;&lt;/td&gt;  </span><br><span class="line">			&lt;td width=&quot;100&quot;&gt;&lt;%=rs.getString(&quot;stu_date&quot;) %&gt;&lt;/td&gt;  </span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">		&lt;%//循环打印出数据库返回出来的结果</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            out.print(&quot;连接失败！&quot;);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;catch (Exception e) &#123;        </span><br><span class="line">        //e.printStackTrace();  </span><br><span class="line">        out.print(&quot;数据库连接异常！&quot;);  </span><br><span class="line">    &#125; </span><br><span class="line">	%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
-
-<p><strong>声明两个变量data和urldata，<br>代表着form中各标签的值url代表着将要访问的网址</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">	var number = $(&quot;#number&quot;).val();</span><br><span class="line">	var password = $(&quot;#password&quot;).val();</span><br><span class="line">	var data;//里面存放需要传输的值</span><br><span class="line">	var url;//访问的服务器网址</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>利用jquery的ajax代码进行对url的访问，以及data的传输</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">	var number = $(&quot;#number&quot;).val();</span><br><span class="line">	var password = $(&quot;#password&quot;).val();</span><br><span class="line">	var data;</span><br><span class="line">	var url;//访问的服务器网址</span><br><span class="line">	jQuery.ajax(&#123;</span><br><span class="line">			type:&quot;post&quot;,</span><br><span class="line">			url:,//后台文件的url 就是form的action,用ajax提交表单就不需要给form写action了</span><br><span class="line">			date:&#123;&quot;userName&quot;:name,&quot;userId&quot;:number,&quot;newPwd&quot;:password&#125;,</span><br><span class="line">			dataType: &quot;json&quot;,</span><br><span class="line">       		contentType: &quot;application/json; charset=utf-8&quot;,</span><br><span class="line">			data: $(&apos;#myform&apos;).serialize(),//表单数据序列化</span><br><span class="line">	&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -329,13 +316,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2019/11/03/ajax/">jsp ajax 调用</a></p>
+        <p><span>本文标题:</span><a  href="/2019/11/03/jsp_Mysql/">jsp 链接数据库实现查询功能</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 王稼祥 的个人博客">王稼祥</a></p>
-        <p><span>发布时间:</span>2019年11月03日 - 09时42分</p>
-        <p><span>最后更新:</span>2019年11月03日 - 09时41分</p>
+        <p><span>发布时间:</span>2019年11月03日 - 10时05分</p>
+        <p><span>最后更新:</span>2019年11月03日 - 10时04分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/11/03/ajax/" title="jsp ajax 调用">http://yoursite.com/2019/11/03/ajax/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/11/03/ajax/　　作者: 王稼祥" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/11/03/jsp_Mysql/" title="jsp 链接数据库实现查询功能">http://yoursite.com/2019/11/03/jsp_Mysql/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/11/03/jsp_Mysql/　　作者: 王稼祥" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -346,15 +333,20 @@
 
 <nav id="article-nav">
   
-    <a  href="/2019/11/03/jsp_Mysql/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a  href="/2019/11/03/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          jsp 链接数据库实现查询功能
+          Java实现的二分查找算法
         
       </div>
     </a>
   
+  
+    <a  href="/2019/11/03/ajax/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jsp ajax 调用</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -437,13 +429,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2019/11/03/jsp_Mysql/" title="上一篇: jsp 链接数据库实现查询功能">
+            <a  href="/2019/11/03/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" title="上一篇: Java实现的二分查找算法">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a  href="/2019/11/03/ajax/" title="下一篇: jsp ajax 调用">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/11/03/jvav%E7%94%BB%E7%AC%94/">JAVA画板JFrame画布JPanel画笔Graphics画漫天不停的跑的星星</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/03/mysql%E6%80%BB%E7%BB%93/">MySQL知识点总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/03/java%E9%80%92%E5%BD%92/">java递归算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/03/java%E6%80%BB%E7%BB%93/">Java总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/03/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">Java实现的二分查找算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/03/jsp_Mysql/">jsp 链接数据库实现查询功能</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/03/ajax/">jsp ajax 调用</a></li></ul>
